@@ -1,54 +1,461 @@
+ url=https://github.com/ShahzebSalim/mediary-pitch/blob/main/index.html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mediary.it Investor Pitch</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Mediary.it - Medical Tech Investor Pitch</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: #f8fafc;
+        }
+        .pricing-badge {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .pricing-badge.growth {
+            background-color: #dcfce7;
+            color: #16a34a;
+        }
+        .pricing-badge.scale {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+        .pricing-badge.enterprise {
+            background-color: #f3e8ff;
+            color: #a855f7;
+        }
+    </style>
 </head>
-<body>
-    <header class="hero">
-        <h1>Welcome to Mediary.it</h1>
-        <p>Your gateway to streamlined medical insurance solutions.
-        </p>
-        <button>Learn More</button>
-    </header>
+<body class="bg-white text-gray-800">
 
-    <section class="executive-summary">
-        <h2>Executive Summary</h2>
-        <p>Mediary.it aims to revolutionize the medical insurance market through technology, providing personalized solutions that adapt to client needs.</p>
+    <!-- STICKY NAVIGATION -->
+    <nav class="sticky-nav bg-white shadow-md border-b border-gray-200" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-blue-600">Mediary.it</h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#executive-summary" class="text-gray-700 hover:text-blue-600 transition">Overview</a>
+                    <a href="#personas" class="text-gray-700 hover:text-blue-600 transition">Personas</a>
+                    <a href="#competitors" class="text-gray-700 hover:text-blue-600 transition">Competitors</a>
+                    <a href="#sales-pipeline" class="text-gray-700 hover:text-blue-600 transition">Pipeline</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-blue-600 transition">Pricing</a>
+                    <a href="#marketing" class="text-gray-700 hover:text-blue-600 transition">Marketing</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button @click="open = !open" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden pb-4 space-y-2">
+                <a href="#executive-summary" class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded">Overview</a>
+                <a href="#personas" class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded">Personas</a>
+                <a href="#competitors" class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded">Competitors</a>
+                <a href="#sales-pipeline" class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded">Pipeline</a>
+                <a href="#pricing" class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded">Pricing</a>
+                <a href="#marketing" class="block text-gray-700 hover:bg-gray-100 px-3 py-2 rounded">Marketing</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-gradient text-white py-20 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-5xl font-extrabold mb-4">Solving the Cold Start Problem in Medical Tech</h2>
+            <p class="text-xl mb-8 text-blue-100">Mediary bypasses the adoption barrier through a Product-Led Growth flywheel that connects patients, doctors, and clinics seamlessly.</p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">View Deck</button>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Schedule Demo</button>
+            </div>
+        </div>
     </section>
 
-    <section class="personas">
-        <h2>Personas</h2>
-        <ul>
-            <li>Insurance Seekers: Individuals or families looking for comprehensive coverage.</li>
-            <li>Insurance Providers: Companies aiming to streamline their processes.</li>
-        </ul>
+    <!-- EXECUTIVE SUMMARY -->
+    <section id="executive-summary" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Executive Summary: The Cold Start Solution</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="card-hover bg-white p-8 rounded-lg shadow-md border-l-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-4">🎯 The B2C Wedge</h3>
+                    <p>Patients use Mediary to instantly OCR-scan, translate, and organize messy physical reports into a clean digital timeline. Zero friction, maximum value.</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-md border-l-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-4">🔗 The B2B Loop</h3>
+                    <p>When patients share their Pre-Visit Prep link with a new doctor, that doctor experiences Mediary's value instantly—saving 15 minutes of intake time—acting as a direct B2B inbound generator.</p>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 border-l-4 border-blue-600 p-8 rounded-lg">
+                <p class="text-lg text-gray-800"><strong>The Result:</strong> A self-reinforcing flywheel where B2C adoption drives B2B revenue, eliminating the traditional "chicken and egg" problem that plagues health-tech startups.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="competitor-analysis">
-        <h2>Competitor Analysis</h2>
-        <p>Analyzing key competitors and outlining our competitive advantages, which include personalized customer service and innovative technology.</p>
+    <div class="section-divider"></div>
+
+    <!-- PERSONAS SECTION -->
+    <section id="personas" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Ideal Customer Profiles & Personas</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-8 text-blue-600">B2B Personas (The Revenue Drivers)</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
+                        <h4 class="text-lg font-bold mb-3 text-blue-900">🏥 High-Volume Diagnostic Centers</h4>
+                        <p class="text-sm text-blue-800"><strong>The Hook:</strong> Pre-Visit Prep & Dashboard</p>
+                        <p class="text-sm mt-3">50+ patients daily. Mediary saves doctors 5–10 minutes per visit through pre-compiled patient data.</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
+                        <h4 class="text-lg font-bold mb-3 text-blue-900">💊 Chronic Care Specialists</h4>
+                        <p class="text-sm text-blue-800"><strong>The Hook:</strong> Symptom Tracking</p>
+                        <p class="text-sm mt-3">Endocrinologists, Rheumatologists rely on objective, chronologically AI-graphed symptom history instead of flawed patient memory.</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
+                        <h4 class="text-lg font-bold mb-3 text-blue-900">🌍 Expat & Medical Tourism Clinics</h4>
+                        <p class="text-sm text-blue-800"><strong>The Hook:</strong> AI Multilingual Reports</p>
+                        <p class="text-sm mt-3">Eliminates immense cost and liability of manually translating medical records for foreign patients.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-8 text-blue-600">B2C Personas (The Network Engine)</h3>
+                <div class="bg-slate-50 border-l-4 border-slate-600 p-8 rounded-lg">
+                    <h4 class="text-xl font-bold mb-4">👨‍👩‍👧‍👦 The "Sandwich Generation" Caregiver (Age 35–55)</h4>
+                    <p>Manages their own health, their kids' pediatric records, and their aging parents' cardiology visits. Desperately seeking an alternative to Italy's fragmented government portal (FSE).</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="sales-pipeline">
-        <h2>Sales Pipeline</h2>
-        <p>Overview of our sales processes and strategies, including outreach, follow-ups, and closing techniques.</p>
+    <div class="section-divider"></div>
+
+    <!-- COMPETITOR ANALYSIS -->
+    <section id="competitors" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Competitor & SWOT Analysis</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6">Competitor Matrix</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full bg-white rounded-lg shadow-md table-striped text-sm">
+                        <thead class="bg-gray-800 text-white">
+                            <tr>
+                                <th class="px-4 py-3 text-left">Competitor</th>
+                                <th class="px-4 py-3 text-left">Core Offering</th>
+                                <th class="px-4 py-3 text-left">Mediary's Differentiator</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold">FSE (Gov Portal)</td>
+                                <td class="px-4 py-3">Free, official regional health record</td>
+                                <td class="px-4 py-3"><strong>UX & Intelligence:</strong> FSE is passive. Mediary is an active AI assistant.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold">MioDottore</td>
+                                <td class="px-4 py-3">Doctor discovery and booking</td>
+                                <td class="px-4 py-3"><strong>Clinical Depth:</strong> They manage calendars; Mediary manages health intelligence.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-semibold">Apple/Google Health</td>
+                                <td class="px-4 py-3">Hardware tracking</td>
+                                <td class="px-4 py-3"><strong>Italian Localization:</strong> Native workflow integration with Italian clinics.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg border border-green-200">
+                    <h4 class="text-lg font-bold mb-2 text-green-900">✅ Strengths</h4>
+                    <ul class="text-sm text-green-800 space-y-2">
+                        <li>• Fully localized Italian UI/UX</li>
+                        <li>• AI-first architecture</li>
+                        <li>• Solves fragmented data</li>
+                    </ul>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-lg border border-yellow-200">
+                    <h4 class="text-lg font-bold mb-2 text-yellow-900">⚠️ Weaknesses</h4>
+                    <ul class="text-sm text-yellow-800 space-y-2">
+                        <li>• Requires high initial trust</li>
+                        <li>• Sensitive sector regulation</li>
+                        <li>• Strict compliance needed</li>
+                    </ul>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
+                    <h4 class="text-lg font-bold mb-2 text-blue-900">🚀 Opportunities</h4>
+                    <ul class="text-sm text-blue-800 space-y-2">
+                        <li>• Italy's PNRR 2026 funding</li>
+                        <li>• Healthcare digitalization push</li>
+                        <li>• Legacy portal frustration</li>
+                    </ul>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg border border-red-200">
+                    <h4 class="text-lg font-bold mb-2 text-red-900">🛑 Threats</h4>
+                    <ul class="text-sm text-red-800 space-y-2">
+                        <li>• Strict Privacy Authority</li>
+                        <li>• Legacy software contracts</li>
+                        <li>• High regulatory burden</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="pricing">
-        <h2>Pricing</h2>
-        <p>Details on our flexible pricing models that cater to various customer segments.</p>
+    <div class="section-divider"></div>
+
+    <!-- SALES PIPELINE -->
+    <section id="sales-pipeline" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">The Sales Pipeline & Support Architecture</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-8">Outbound to Demo Handoff: 3 Phases</h3>
+                <div class="space-y-6">
+                    <div class="card-hover bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-lg">
+                        <h4 class="text-xl font-bold mb-2">Phase 1: The SDR Phase (The Wedge)</h4>
+                        <p>The outbound engine secures the meeting by promising to solve a specific administrative bottleneck.</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-r from-blue-500 to-blue-600 text-white p-8 rounded-lg">
+                        <h4 class="text-xl font-bold mb-2">Phase 2: The AE Phase (The "Aha!" Demo)</h4>
+                        <p>Account Executives perform "Live Ingestion Demos." The AE asks the Clinic Director for a redacted patient history, drops it into Mediary live, and allows the AI to organize it instantly.</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-r from-blue-400 to-blue-500 text-white p-8 rounded-lg">
+                        <h4 class="text-xl font-bold mb-2">Phase 3: Pilot Trial (Progetto Pilota)</h4>
+                        <p>Offer a 30-day trial limited to 1–2 "Champion Doctors" within the clinic. If success criteria are met, the annual contract triggers automatically.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-8">Multi-Tiered Support Matrix</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="card-hover bg-white p-8 rounded-lg shadow-md border-t-4 border-slate-600">
+                        <h4 class="text-lg font-bold mb-4">🏢 Tier 3: Mediary to B2B</h4>
+                        <p class="text-sm text-gray-700">Account Executives act as Customer Success Managers, providing VIP technical support and API integration assistance.</p>
+                    </div>
+                    <div class="card-hover bg-white p-8 rounded-lg shadow-md border-t-4 border-slate-500">
+                        <h4 class="text-lg font-bold mb-4">🤝 Tier 2: Clinic to B2C Patient</h4>
+                        <p class="text-sm text-gray-700">The clinic acts as the "Reseller," instructing patients on document uploads and handling basic usage questions.</p>
+                    </div>
+                    <div class="card-hover bg-white p-8 rounded-lg shadow-md border-t-4 border-slate-400">
+                        <h4 class="text-lg font-bold mb-4">👥 Tier 1: Mediary to B2C Patient</h4>
+                        <p class="text-sm text-gray-700">Direct B2C support via in-app AI chatbot with escalation to human ticketing system for major bugs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-6">Outbound Engine: Apollo + Clay + LinkedIn</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg">
+                        <h4 class="text-lg font-bold mb-3 text-blue-600">Phase 1: HCI Beta (M1–3)</h4>
+                        <p class="text-sm mb-3"><strong>Action:</strong> Hand-pick 10 Poliambulatori in Lombardy or Emilia-Romagna for white-glove free trial.</p>
+                        <p class="text-sm font-semibold text-gray-600">Goal: Fix workflow friction & create case studies</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg">
+                        <h4 class="text-lg font-bold mb-3 text-blue-600">Phase 2: Intent-Driven (M4–8)</h4>
+                        <p class="text-sm mb-3">Apollo scraping → Sales Navigator targeting → Clay personalization → LinkedIn automation</p>
+                        <p class="text-sm font-semibold text-gray-600">Goal: Scale qualified leads</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg">
+                        <h4 class="text-lg font-bold mb-3 text-blue-600">Phase 3: Scale (M9+)</h4>
+                        <p class="text-sm mb-3">B2B case studies → LinkedIn Ads for doctors + Meta Ads for caregivers</p>
+                        <p class="text-sm font-semibold text-gray-600">Goal: Viral expansion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="marketing-mix">
-        <h2>Marketing Mix</h2>
-        <p>Strategies for product, price, place, and promotion tailored to the medical insurance industry.</p>
+    <div class="section-divider"></div>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Pricing Matrix: Volume-Based SaaS</h2>
+            <p class="text-center text-lg text-gray-600 mb-12">Volume-Based SaaS Model based on "Active Patient Profiles" managed per month.</p>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6">B2B Pricing (The Clinic Model)</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full bg-white rounded-lg shadow-md table-striped text-sm">
+                        <thead class="bg-slate-800 text-white">
+                            <tr>
+                                <th class="px-4 py-3 text-left">Tier</th>
+                                <th class="px-4 py-3 text-left">Patient Profiles</th>
+                                <th class="px-4 py-3 text-left">Price/Profile</th>
+                                <th class="px-4 py-3 text-left">Platform Fee</th>
+                                <th class="px-4 py-3 text-left">Target ICP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-4 py-3"><span class="pricing-badge">Starter</span></td>
+                                <td class="px-4 py-3">0 – 500</td>
+                                <td class="px-4 py-3"><strong>€1.20</strong></td>
+                                <td class="px-4 py-3"><strong>€99</strong></td>
+                                <td class="px-4 py-3">Solo Specialists</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3"><span class="pricing-badge growth">Growth</span></td>
+                                <td class="px-4 py-3">501 – 2,000</td>
+                                <td class="px-4 py-3"><strong>€0.95</strong> <span class="text-green-600">(20% off)</span></td>
+                                <td class="px-4 py-3"><strong>€249</strong></td>
+                                <td class="px-4 py-3">Small Poliambulatori</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3"><span class="pricing-badge scale">Scale</span></td>
+                                <td class="px-4 py-3">2,001 – 5,000</td>
+                                <td class="px-4 py-3"><strong>€0.70</strong> <span class="text-yellow-600">(40% off)</span></td>
+                                <td class="px-4 py-3"><strong>€499</strong></td>
+                                <td class="px-4 py-3">Medium Clinics</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3"><span class="pricing-badge enterprise">Enterprise</span></td>
+                                <td class="px-4 py-3">5,000+</td>
+                                <td class="px-4 py-3">Custom</td>
+                                <td class="px-4 py-3">Custom</td>
+                                <td class="px-4 py-3">Large Diagnostic Hubs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-6">B2C Pricing (The End User)</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card-hover bg-white p-8 rounded-lg shadow-md border-l-4 border-gray-400">
+                        <h4 class="text-lg font-bold mb-3">📱 Base Tier (Free)</h4>
+                        <ul class="text-sm text-gray-700 space-y-2 mb-4">
+                            <li>✓ Essential timeline organization</li>
+                            <li>✓ Limited uploads</li>
+                            <li>✓ 1 user profile</li>
+                        </ul>
+                        <p class="text-sm text-gray-600"><em>Goal: Maximize B2C user acquisition.</em></p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg shadow-md border-l-4 border-blue-600">
+                        <h4 class="text-lg font-bold mb-3 text-blue-900">⭐ Mediary Premium</h4>
+                        <p class="text-2xl font-bold text-blue-600 mb-4">€4.99/mo or €49/year</p>
+                        <ul class="text-sm text-blue-800 space-y-2">
+                            <li>✓ Unlimited AI multilingual reports</li>
+                            <li>✓ Deep symptom tracking analytics</li>
+                            <li>✓ Multi-profile family management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Mediary.it. All rights reserved.</p>
+    <div class="section-divider"></div>
+
+    <!-- MARKETING MIX -->
+    <section id="marketing" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Post-Seed Scale: Evolving the Marketing Mix</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="card-hover bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-lg shadow-md border-t-4 border-red-600">
+                    <div class="text-4xl font-bold text-red-600 mb-2">60%</div>
+                    <h4 class="text-xl font-bold mb-3 text-red-900">Outbound</h4>
+                    <p class="text-sm text-red-800">Apollo/Clay stack targeting high-value clinics with intent-based personalization.</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-lg shadow-md border-t-4 border-yellow-600">
+                    <div class="text-4xl font-bold text-yellow-600 mb-2">20%</div>
+                    <h4 class="text-xl font-bold mb-3 text-yellow-900">PPC & SEM</h4>
+                    <p class="text-sm text-yellow-800">Google Ads for high-intent Italian keywords. Meta/LinkedIn retargeting with video testimonials.</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg shadow-md border-t-4 border-blue-600">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">10%</div>
+                    <h4 class="text-xl font-bold mb-3 text-blue-900">SEO & Content</h4>
+                    <p class="text-sm text-blue-800">Programmatic SEO pages answering administrative queries, positioning Mediary as solution.</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg shadow-md border-t-4 border-purple-600">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">10%</div>
+                    <h4 class="text-xl font-bold mb-3 text-purple-900">Viral Loops</h4>
+                    <p class="text-sm text-purple-800">The "Powered by Mediary" badge exposes thousands of B2C users weekly at zero cost.</p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-slate-700 to-slate-800 text-white p-12 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">The Flywheel Effect</h3>
+                <p class="mb-4">Every clinic dashboard footer displays "Powered by Mediary" → Thousands of patient exposures daily → Free B2C virality → Patients demand Mediary at other doctors' clinics → New clinic inbound leads → Revenue growth at 90% gross margin.</p>
+                <p class="text-slate-300"><em>This is network effects at work.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-300 py-12 px-4">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <h4 class="text-white font-bold mb-4">Mediary.it</h4>
+                <p class="text-sm">Solving the Cold Start Problem in Medical Tech.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <ul class="text-sm space-y-2">
+                    <li><a href="#executive-summary" class="hover:text-white transition">Overview</a></li>
+                    <li><a href="#personas" class="hover:text-white transition">Personas</a></li>
+                    <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Contact</h4>
+                <p class="text-sm">investors@mediary.it</p>
+                <p class="text-sm">Milan, Italy</p>
+            </div>
+        </div>
+        <div class="border-t border-slate-700 pt-8 text-center text-sm">
+            <p>&copy; 2026 Mediary.it. All rights reserved.</p>
+        </div>
     </footer>
+
 </body>
 </html>
